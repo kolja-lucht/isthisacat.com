@@ -7,18 +7,18 @@ trigger:
   - master
 
 pool:
-  vmImage: "ubuntu-latest"
+  vmImage: "windows-latest"
 
 steps:
   - task: AzureWebApp@1
     inputs:
       azureSubscription: "catconnection"
-      appName: "isthisacat"
+      appName: "okworld"
       package: "$(System.DefaultWorkingDirectory)"
       customWebConfig: "-Handler iisnode -NodeStartFile server.js -appType node"
   - task: NodeTool@0
     inputs:
-      versionSpec: "13.x"
+      versionSpec: "10.x"
       displayName: "Install Node.js"
 
   - script: |
