@@ -10,16 +10,16 @@ pool:
   vmImage: "ubuntu-latest"
 
 steps:
-  - task: NodeTool@0
-    inputs:
-      versionSpec: "10.x"
-    displayName: "Install Node.js"
   - task: AzureWebApp@1
     inputs:
       azureSubscription: "catconnection"
       appName: "isthisacat"
       package: "$(System.DefaultWorkingDirectory)"
       customWebConfig: "-Handler iisnode -NodeStartFile server.js -appType node"
+  - task: NodeTool@0
+    inputs:
+      versionSpec: "10.x"
+      displayName: "Install Node.js"
 
   - script: |
       yarn install
