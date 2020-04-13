@@ -18,7 +18,7 @@ steps:
       customWebConfig: "-Handler iisnode -NodeStartFile server.js -appType node"
   - task: NodeTool@0
     inputs:
-      versionSpec: "latest"
+      versionSpec: "13.x"
       displayName: "Install Node.js"
 
   - script: |
